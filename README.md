@@ -1,69 +1,96 @@
-# Welcome to your Lovable project
 
-## Project info
+# CostWise Insights Hub
 
-**URL**: https://lovable.dev/projects/9318757a-9283-4a26-b65a-f27866e5f8f0
+![CostWise Logo](public/lovable-uploads/b3a534bf-4071-4546-b334-e34fadc7d337.png)
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+CostWise is a comprehensive cost optimization and expense management platform built for businesses of all sizes. It provides detailed insights, analytics, and recommendations to help companies optimize their spending and identify savings opportunities.
 
-**Use Lovable**
+## Key Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9318757a-9283-4a26-b65a-f27866e5f8f0) and start prompting.
+- **Interactive Dashboard**: Get a complete overview of your company's expenses with visual representations of cost trends, distributions, and comparisons.
+- **Expense Management**: Track, categorize, and analyze expenses across departments and categories.
+- **Department Analysis**: View department-specific spending patterns and identify areas for cost optimization.
+- **Budget Analysis**: Compare actual expenses with budgeted amounts to maintain financial discipline.
+- **Demo Accounts**: Try out the platform with pre-populated data before committing to a subscription.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Quick Start
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Follow these steps to get started with CostWise:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone <your-repo-url>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd costwise
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Technology Stack
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+CostWise is built using modern web technologies:
 
-**Use GitHub Codespaces**
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Data Visualization**: Recharts
+- **State Management**: React Context API and React Query
+- **Routing**: React Router
+- **API**: Express server with mock data
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+The project follows a modular structure for better maintainability:
 
-This project is built with .
+- `/src/components`: UI components organized by feature
+- `/src/contexts`: React contexts for state management
+- `/src/hooks`: Custom React hooks
+- `/src/layouts`: Page layout components
+- `/src/pages`: Application pages and routes
+- `/src/services`: API services and data handling
+- `/src/types`: TypeScript type definitions
+- `/src/utils`: Utility functions
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+The application can be deployed using Lovable's built-in deployment features:
 
-Simply open [Lovable](https://lovable.dev/projects/9318757a-9283-4a26-b65a-f27866e5f8f0) and click on Share -> Publish.
+1. Navigate to your project in Lovable: https://lovable.dev/projects/9318757a-9283-4a26-b65a-f27866e5f8f0
+2. Click on "Share" → "Publish"
+3. Your application will be deployed and available at the provided URL
 
-## I want to use a custom domain - is that possible?
+For custom domain deployment, see [Custom Domain Documentation](https://docs.lovable.dev/tips-tricks/custom-domain/).
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## Demo Access
+
+To experience CostWise without signing up:
+
+1. Visit the homepage
+2. Click "Try Demo"
+3. Select one of the available demo companies
+4. Explore all features with pre-populated data
+
+## Subscription Plans
+
+CostWise offers two main subscription tiers:
+
+- **Standard Plan** ($499/month): Suitable for small to medium businesses with up to 5 departments
+- **Enterprise Plan** ($1,299/month): Designed for larger organizations with unlimited departments and advanced features
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is proprietary software.
+
+## Contact
+
+For more information, please contact [contact@costwise.com](mailto:contact@costwise.com).
