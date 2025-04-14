@@ -7,6 +7,12 @@ import { fetchRealCompanies } from '@/services/realCompanyService';
 import { toast } from 'sonner';
 import { useAuth } from '@/contexts/AuthContext';
 
+// Helper to check if we're on the home page
+const isHomePage = () => {
+  return window.location.pathname === '/' || 
+         window.location.pathname === '/index.html';
+};
+
 export const useCompanyData = () => {
   const [companies, setCompanies] = useState<CompanyData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -54,7 +60,11 @@ export const useCompanyData = () => {
             console.log('Real companies loaded:', realCompanies);
             allCompanies = [...allCompanies, ...realCompanies];
             setRealCompaniesLoaded(true);
-            toast.success('Real company data loaded successfully');
+            
+            // Only show success toast if not on home page
+            if (!isHomePage()) {
+              toast.success('Real company data loaded successfully');
+            }
           } else {
             console.warn('No real companies data received');
           }
@@ -129,7 +139,11 @@ export const useCompanyData = () => {
         setCompanies(mockCompanies);
         setError('Failed to load companies. Using sample data instead.');
       }
-      toast.error('Failed to load companies. Using sample data instead.');
+      
+      // Only show error toast if not on home page
+      if (!isHomePage()) {
+        toast.error('Failed to load companies. Using sample data instead.');
+      }
     } finally {
       setLoading(false);
     }
@@ -164,7 +178,11 @@ export const useCompanyData = () => {
         }
       } catch (err) {
         console.error('Error selecting demo company:', err);
-        toast.error('Failed to select demo company');
+        
+        // Only show error toast if not on home page
+        if (!isHomePage()) {
+          toast.error('Failed to select demo company');
+        }
       }
     }
     
@@ -203,12 +221,20 @@ export const useCompanyData = () => {
       } else {
         console.error(`Company with ID ${id} not found`);
         setError(`Company with ID ${id} not found`);
-        toast.error(`Company with ID ${id} not found`);
+        
+        // Only show error toast if not on home page
+        if (!isHomePage()) {
+          toast.error(`Company with ID ${id} not found`);
+        }
       }
     } catch (err) {
       console.error('Error selecting company:', err);
       setError('Failed to select company');
-      toast.error('Failed to select company');
+      
+      // Only show error toast if not on home page
+      if (!isHomePage()) {
+        toast.error('Failed to select company');
+      }
     } finally {
       setLoading(false);
     }
@@ -235,7 +261,11 @@ export const useCompanyData = () => {
           companiesToCompare.push(company);
         } else {
           console.error(`Company with ID ${id} not found for comparison`);
-          toast.error(`Company with ID ${id} not found for comparison`);
+          
+          // Only show error toast if not on home page
+          if (!isHomePage()) {
+            toast.error(`Company with ID ${id} not found for comparison`);
+          }
         }
       }
       
@@ -244,7 +274,12 @@ export const useCompanyData = () => {
     } catch (err) {
       console.error('Error comparing companies:', err);
       setError('Failed to compare companies');
-      toast.error('Failed to compare companies');
+      
+      // Only show error toast if not on home page
+      if (!isHomePage()) {
+        toast.error('Failed to compare companies');
+      }
+      
       return [];
     } finally {
       setLoading(false);

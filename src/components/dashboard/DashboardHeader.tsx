@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -98,7 +99,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             <span>Welcome, {user?.name || 'User'}</span>
           </div>
           <Button 
-            variant="outline"
+            variant="outline-primary"
             onClick={goToFullDashboard}
             className="text-sm font-medium hidden sm:flex"
             size="sm"
@@ -107,9 +108,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           </Button>
           <div className="flex items-center gap-2">
             <Button 
-              variant="ghost" 
+              variant="outline" 
               size="icon" 
-              className="rounded-full relative"
+              className="rounded-full relative bg-white"
               onClick={handleNotificationsClick}
             >
               <Bell size={20} />
@@ -118,15 +119,15 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
               )}
             </Button>
             <Button 
-              variant="ghost" 
+              variant="outline" 
               size="icon"
-              className="rounded-full"
+              className="rounded-full bg-white"
               onClick={openSettings}
             >
               <Settings size={20} />
             </Button>
             <Button 
-              variant="outline" 
+              variant="outline-primary" 
               onClick={logout}
               className="text-sm font-medium"
               size="sm"

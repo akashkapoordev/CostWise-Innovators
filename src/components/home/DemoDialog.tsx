@@ -91,36 +91,40 @@ const DemoDialog: React.FC<DemoDialogProps> = ({ open, onOpenChange }) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-3xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Try CostWise Demo</DialogTitle>
+          <DialogTitle className="text-xl text-costwise-darkblue">Try CostWise Demo</DialogTitle>
           <DialogDescription>
             Choose a demo company to explore CostWise features
           </DialogDescription>
         </DialogHeader>
         
-        <div className="space-y-4 mt-2">
-          {demoCompanies.map(company => (
-            <DemoCompanyCard
-              key={company.id}
-              id={company.id}
-              title={company.title}
-              description={company.description}
-              badgeText={company.badgeText}
-              stats={company.stats}
-              onAccess={handleDemoAccess}
-            />
-          ))}
+        <div className="space-y-6 mt-4 px-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {demoCompanies.map(company => (
+              <DemoCompanyCard
+                key={company.id}
+                id={company.id}
+                title={company.title}
+                description={company.description}
+                badgeText={company.badgeText}
+                stats={company.stats}
+                onAccess={handleDemoAccess}
+              />
+            ))}
+          </div>
           
-          <PricingCards />
+          <div className="border-t border-gray-200 pt-4">
+            <PricingCards />
+          </div>
           
-          <p className="text-xs text-center text-muted-foreground">
+          <p className="text-xs text-center text-muted-foreground mt-2">
             These are demo companies with sample data. No real data is used.
           </p>
         </div>
         
         <DialogFooter className="flex sm:justify-start">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>Cancel</Button>
+          <Button variant="outline-primary" onClick={() => onOpenChange(false)}>Cancel</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

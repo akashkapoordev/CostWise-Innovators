@@ -4,6 +4,12 @@ import { toast } from 'sonner';
 
 const API_URL = 'http://localhost:5000/api';
 
+// Helper to check if we're on the home page
+const isHomePage = () => {
+  return window.location.pathname === '/' || 
+         window.location.pathname === '/index.html';
+};
+
 export const fetchCompanies = async (): Promise<CompanyData[]> => {
   try {
     const response = await fetch(`${API_URL}/companies`);
@@ -13,7 +19,12 @@ export const fetchCompanies = async (): Promise<CompanyData[]> => {
     return await response.json();
   } catch (error) {
     console.error('Error fetching companies:', error);
-    toast.error('Failed to fetch companies. Using mock data instead.');
+    
+    // Only show toast if not on home page
+    if (!isHomePage()) {
+      toast.error('Failed to fetch companies. Using mock data instead.');
+    }
+    
     return [];
   }
 };
@@ -27,7 +38,12 @@ export const fetchCompanyDetails = async (id: string): Promise<CompanyData | nul
     return await response.json();
   } catch (error) {
     console.error('Error fetching company details:', error);
-    toast.error('Failed to fetch company details. Using cached data if available.');
+    
+    // Only show toast if not on home page
+    if (!isHomePage()) {
+      toast.error('Failed to fetch company details. Using cached data if available.');
+    }
+    
     return null;
   }
 };
@@ -41,7 +57,12 @@ export const fetchCompanyMetrics = async (companyId: string): Promise<MetricsDat
     return await response.json();
   } catch (error) {
     console.error('Error fetching company metrics:', error);
-    toast.error('Failed to fetch company metrics');
+    
+    // Only show toast if not on home page
+    if (!isHomePage()) {
+      toast.error('Failed to fetch company metrics');
+    }
+    
     return null;
   }
 };
